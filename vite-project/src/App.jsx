@@ -1,13 +1,15 @@
-import { Cabecalho } from './componentes';
 import './App.css';
+import { Cabecalho, Conteudo } from './componentes';
 
 
 const App = () => {
   return (
     <>
-    <h1>Hello, World!</h1>
-      <Cabecalho />
-
+      <Cabecalho nomeUsuario="Joana" />
+      <Conteudo>
+        <h1>Título</h1>
+        <p>Texto texto texto</p>
+      </Conteudo>
     </>
   );
 }
