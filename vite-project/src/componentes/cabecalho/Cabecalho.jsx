@@ -1,6 +1,8 @@
+import style from './Cabecalho.module.css';
+
 const Cabecalho = () => {
   return (
-    <div>
+    <div className={style.Cabecalho}>
       <h1>
         <span>ToDo </span>
         List
