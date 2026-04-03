@@ -1,0 +1,17 @@
+.Rodape {
+    background-color: var(--preto);
+    color: var(--cinza);
+}
+
+.Rodape p {
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.Rodape footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
