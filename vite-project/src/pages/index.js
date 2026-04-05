@@ -1,1 +1,1 @@
-export * from './Inicial.jsx';
+export * from './Inicial';
