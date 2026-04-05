@@ -1,20 +1,17 @@
-import './App.css';
-import { Cabecalho, Conteudo, Rodape } from './componentes';
-
+import "./App.css";
+import { Cabecalho, Conteudo, Rodape } from "./componentes";
+import { Inicial } from "./pages";
 
 const App = () => {
   return (
     <>
-      <Cabecalho/>
+      <Cabecalho />
       <Conteudo>
-        <h1>Título</h1>
-        <p>Texto texto texto</p>
-        <p>Texto texto texto</p>
-        <p>Texto texto texto</p>
+        <Inicial />
       </Conteudo>
       <Rodape criadorDoProjeto="Eduardo" />
     </>
   );
-}
+};
 
 export { App };
