@@ -1,1 +1,1 @@
-export * from './Rodape.jsx';
+export * from "./Rodape.jsx";

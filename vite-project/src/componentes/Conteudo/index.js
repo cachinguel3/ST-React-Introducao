@@ -1,1 +1,1 @@
-export * from './Conteudo.jsx';
+export * from "./Conteudo.jsx";

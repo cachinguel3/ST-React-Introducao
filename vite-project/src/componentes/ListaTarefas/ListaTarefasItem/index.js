@@ -1,1 +1,1 @@
-export * from './ListaTarefasItem.jsx';
+export * from "./ListaTarefasItem.jsx";

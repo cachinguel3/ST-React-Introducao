@@ -12,4 +12,3 @@ const Botao = (props) => {
 };
 
 export { Botao };
- 

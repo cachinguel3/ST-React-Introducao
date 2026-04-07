@@ -1,1 +1,1 @@
-export * from './Cabecalho.jsx';
+export * from "./Cabecalho.jsx";

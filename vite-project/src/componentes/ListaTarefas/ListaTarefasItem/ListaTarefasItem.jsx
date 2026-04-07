@@ -1,4 +1,3 @@
-
 import { Botao, TIPO_BOTAO } from "../../Botao";
 import style from "./ListaTarefasItem.module.css";
 
@@ -14,4 +13,3 @@ const ListaTarefasItem = (props) => {
 };
 
 export { ListaTarefasItem };
-

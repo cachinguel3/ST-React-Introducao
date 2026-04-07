@@ -1,4 +1,4 @@
-import style from './Cabecalho.module.css';
+import style from "./Cabecalho.module.css";
 
 const Cabecalho = () => {
   return (

@@ -1,2 +1,2 @@
-export * from './ListaTarefas.jsx';
-export * from './ListaTarefasItem';
+export * from "./ListaTarefas.jsx";
+export * from "./ListaTarefasItem";
