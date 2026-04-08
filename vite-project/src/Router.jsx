@@ -1,14 +1,16 @@
-import { Routes } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { Inicial, SobreNos } from "./pages";
+import { LayoutPadrao } from "./layouts";
 
 const Router = () => {
    return (
       <Routes>
-         <Router path="/" element={<Inicial />} />
-         <Router path="/sobre-nos" element={<SobreNos />} />
+         <Route path="/" element={<LayoutPadrao />}>
+            <Route path="/" element={<Inicial />} />
+            <Route path="/SobreNos" element={<SobreNos />} />
+         </Route>
       </Routes>
    );
 };
 
 export { Router };
-
