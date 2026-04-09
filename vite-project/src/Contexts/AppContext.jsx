@@ -9,7 +9,7 @@ export const AppContextProvider = (props) => {
    const [criador, _setCriador] = useState("Eduardo");
 
    const [tarefas, setTarefas] = useState([
-    
+
    ]);
 
    const adicionarTarefa = (nomeTarefa) => {
@@ -31,12 +31,23 @@ export const AppContextProvider = (props) => {
     });
    };
 
+   const editarTarefa = (idTarefa, novoNome) => {
+    setTarefas((estadoAtual) => {
+        const tarefasAtualizadas = estadoAtual.map((tarefa) => {
+            return tarefa.id === idTarefa ? { ...tarefa, nome: novoNome } : tarefa;
+        });
+        return [...tarefasAtualizadas];
+    });
+   };
+
+
    return (
       <AppContext.Provider value={{ 
             criador, 
             tarefas, 
             adicionarTarefa, 
-            removerTarefa 
+            removerTarefa,
+            editarTarefa, 
         }}>
          {children}
       </AppContext.Provider>
