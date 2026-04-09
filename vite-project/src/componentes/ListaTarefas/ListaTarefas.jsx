@@ -1,12 +1,15 @@
+import { useAppContext } from "../../hooks";
 import style from "./ListaTarefas.module.css";
 import { ListaTarefasItem } from "./ListaTarefasItem";
 
-const ListaTarefas = (props) => {
-  const { tarefas } = props;
+const ListaTarefas = () => {
+  const { tarefas } = useAppContext();
+
   return (
     <ul className={style.ListaTarefas}>
+      {!tarefas.length && (<p>Não há tarefas cadastradas...</p>)}
       {tarefas.map((item) => (
-        <ListaTarefasItem key={item.id} nome={item.nome} />
+        <ListaTarefasItem key={item.id} id={item.id} nome={item.nome} />
       ))}
     </ul>
   );

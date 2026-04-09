@@ -1,40 +1,36 @@
 import { useState } from "react";
 import { Botao, CampoTexto, TIPO_BOTAO } from "../../componentes";
+import { useAppContext } from "../../hooks";
 import style from "./FormCriarTarefa.module.css";
 
-const FormCriarTarefa = (props) => {
-   const [nomeTarefa, setNomeTarefa] = useState();
+const FormCriarTarefa = () => {
+   const { adicionarTarefa } = useAppContext();
 
-   const { setTarefas } = props;
+   const [nomeTarefa, setNomeTarefa] = useState();
 
    const onChangeTarefa = (event) => {
       setNomeTarefa(event.currentTarget.value);
    };
 
-   const adicionarTarefa = (event) => {
+   const submeterFormulario = (event) => {
       event.preventDefault();
 
       if (!nomeTarefa) {
          return;
       }
 
-      setTarefas((estadoAtual) => {
-         const tarefa = {
-            id: estadoAtual.length + 1,
-            nome: nomeTarefa,
-         };
+      adicionarTarefa(nomeTarefa);
 
-         return [...estadoAtual, tarefa];
-      });
       setNomeTarefa("");
    };
 
    return (
-      <form className={style.FormCriarTarefa} onSubmit={adicionarTarefa}>
+      <form className={style.FormCriarTarefa} onSubmit={submeterFormulario}>
          <CampoTexto value={nomeTarefa} onChange={onChangeTarefa} />
-         <Botao texto="+" tipo={TIPO_BOTAO.SECUNDARIO} />
+         <Botao texto="+" tipo={TIPO_BOTAO.PRIMARIO} />
       </form>
    );
 };
 
 export { FormCriarTarefa };
+

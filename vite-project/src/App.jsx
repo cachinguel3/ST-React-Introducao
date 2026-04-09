@@ -1,12 +1,15 @@
 import { BrowserRouter } from "react-router-dom";
-import { Router } from "./Router";
 import "./App.css";
+import { AppContextProvider } from "./Contexts";
+import { Router } from "./Router";
 
 const App = () => {
    return (
-      <BrowserRouter>
-         <Router />
-      </BrowserRouter>
+      <AppContextProvider>
+         <BrowserRouter>
+            <Router />
+         </BrowserRouter>
+      </AppContextProvider>
    );
 };
 
