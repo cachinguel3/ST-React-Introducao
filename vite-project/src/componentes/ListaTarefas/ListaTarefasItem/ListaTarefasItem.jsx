@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Botao, TIPO_BOTAO } from "../../../componentes";
+import { Botao, Loading, TIPO_BOTAO } from "../../../componentes";
 import { useAppContext } from "../../../hooks";
 import { CampoTexto } from "../../CampoTexto";
 import style from "./ListaTarefasItem.module.css";
@@ -9,21 +9,35 @@ const ListaTarefasItem = (props) => {
 
   const [estaEditando, setEstaEditando] = useState(false);
 
-  const { editarTarefa, removerTarefa } = useAppContext();
+  const { loadingEditar, loadingDeletar, editarTarefa, removerTarefa } = useAppContext();
+
+  const onBlurTarefa = (event) => {
+    const nomeTarefa = event.currentTarget.value;
+
+    editarTarefa(id, nomeTarefa);
+
+    setEstaEditando(false)
+  };
+
+  const loadingEstaEditando = loadingEditar === id;
+  const loadingEstaDeletando = loadingDeletar === id;
 
   return (
     <li className={style.ListaTarefasItem}>
-      {estaEditando && (
+      {(loadingEstaEditando || estaEditando) && (
         <CampoTexto 
         defaultValue={nome}
-        onChange={event => editarTarefa(id, event.currentTarget.value)}
-        onBlur={() => setEstaEditando(false)} autoFocus/>
+        onBlur={onBlurTarefa} 
+        autoFocus/>
       )}
-      {!estaEditando && (
+      
+      {!loadingEstaEditando && !estaEditando && (
         <span onDoubleClick={() => setEstaEditando(true)}>{nome}</span>
       )}
 
-      <Botao texto="-" 
+      {loadingEstaEditando && (<Loading />)  }
+
+      <Botao texto={loadingEstaDeletando ? <Loading /> : "-"}
       tipo={TIPO_BOTAO.SECUNDARIO} 
       onClick={() => removerTarefa(id)}
       doubleClick={() => editarTarefa(id, "Tarefa Editada")}
