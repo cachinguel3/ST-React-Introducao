@@ -1,0 +1,1 @@
+Este projeto foi desenvovido durante as aulas do curso Introsução ao React na platforma TIC em trilas
